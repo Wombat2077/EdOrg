@@ -55,5 +55,9 @@ namespace EdOrg.Views
             currentSubject = currentItem.Value;
             dgMarks.ItemsSource = user.Marks.Where(m => m.Subjects.Id == currentSubject.Id).ToList();
         }
+        private void logout(object sender, EventArgs e)
+        {
+            App.logout(this);
+        }
     }
 }

@@ -6,7 +6,11 @@
         xmlns:local="clr-namespace:EdOrg.Views"
         mc:Ignorable="d"
         Title="Student" Height="450" Width="800">
-    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="350">
+    <StackPanel VerticalAlignment="Stretch">
+        <Button x:Name="btnLogout" Click="logout" Style="{StaticResource logoutBtn}" Template="{StaticResource NoMouseOverButtonTemplate}" HorizontalAlignment="Left">
+            <Image  Source="../Resources/logout.png" Height="30" />
+        </Button>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="350">
         <Image Source="../Resources/sad-pepe.png" Height="100" HorizontalAlignment="Center"/>
         <Label HorizontalAlignment="Left" Margin="10,0,0,0">Дисциплина</Label>
         <ComboBox x:Name="cbxCurrentSubject" Margin="10,0,0,0" SelectionChanged="ChangeCurrentSubject" HorizontalAlignment="Left" VerticalAlignment="Center" Width="100"></ComboBox>
@@ -17,5 +21,6 @@
                 <DataGridTextColumn Header="Оценка" Width="*" Binding="{Binding Value}" />
             </DataGrid.Columns>
         </DataGrid>
+    </StackPanel>
     </StackPanel>
 </Window>

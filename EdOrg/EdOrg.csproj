@@ -186,6 +186,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\logout.png" />
     <Resource Include="Resources\sus-pepe.png" />
     <Resource Include="Resources\sad-pepe.png" />
   </ItemGroup>

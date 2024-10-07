@@ -13,5 +13,11 @@ namespace EdOrg
     /// </summary>
     public partial class App : Application
     {
+        public static void logout(Window window)
+        {
+            MainWindow LWindow = new MainWindow();
+            LWindow.Show();
+            window.Close();
+        }
     }
 }

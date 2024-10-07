@@ -72,3 +72,4 @@ C:\Users\wombat1742\tasks\EdOrg\EdOrg\obj\Debug\EdOrg.Properties.Resources.resou
 C:\Users\wombat1742\tasks\EdOrg\EdOrg\obj\Debug\EdOrg.csproj.GenerateResource.cache
 C:\Users\wombat1742\tasks\EdOrg\EdOrg\obj\Debug\EdOrg.csproj.CoreCompileInputs.cache
 C:\Users\wombat1742\tasks\EdOrg\EdOrg\obj\Debug\EdOrg.csproj.Up2Date
+C:\Users\wombat1742\tasks\EdOrg\EdOrg\obj\Debug\App.baml
