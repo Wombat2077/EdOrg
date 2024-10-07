@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:EdOrg.Views"
         mc:Ignorable="d"
         Title="TeacherView" Height="450" Width="800">
+    <Border Padding="5">
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="450">
         <Image Source="../Resources/sus-pepe.png" Width="200"/>
         <Label>
@@ -16,14 +17,15 @@
             Студент
         </Label>
         <ComboBox x:Name="cbxStudent" Width="150" HorizontalAlignment="Left" IsEditable="True" IsTextSearchEnabled="True" Margin="0,0,0,10"></ComboBox>
-        <DataGrid x:Name="dgMarks">
+        <DataGrid x:Name="dgMarks" AutoGenerateColumns="False" VerticalScrollBarVisibility="Visible" Height="100">
             <DataGrid.Columns>
                 <DataGridTextColumn Width="*" Header="Дата" Binding="{Binding CreatedAt}"/>
                 <DataGridTextColumn Width="*" Header="Группа" Binding="{Binding Users.Groups.Name}"/>
                 <DataGridTextColumn Width="*" Header="Студент" Binding="{Binding Users.fullName}"/>
                 <DataGridTextColumn Width="*" Header="Оценка" Binding="{Binding Value}"/>
-                <DataGridTextColumn Width="*" Header="Дисциплина" Binding="{Binding Subjects.Name}"/>
+                    <DataGridTextColumn Width="*" Header="Дисциплина" Binding="{Binding Subjects}"/>
             </DataGrid.Columns>
         </DataGrid>
     </StackPanel>
+    </Border>
 </Window>

@@ -11,7 +11,7 @@ namespace EdOrg
 {
     using System;
     using System.Collections.Generic;
-    
+
     public partial class Marks
     {
         public int Id { get; set; }
@@ -20,8 +20,17 @@ namespace EdOrg
         public int SubjectId { get; set; }
         public System.DateTime CreatedAt { get; set; }
         public Nullable<System.DateTime> UpdatedAt { get; set; }
-    
-        public virtual Subjects Subjects { get; set; }
+
+        public virtual Subjects Subject { 
+            get
+            {
+                using(var context = new EdOrgEntities())
+                {
+                    Subjects subject = context.Subjects.Find(this.SubjectId);
+                    return subject;
+                }
+            } 
+        }
         public virtual Users Users { get; set; }
     }
 }

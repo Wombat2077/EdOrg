@@ -32,6 +32,6 @@ C:\Users\WSR\Desktop\delitee\EdOrg\EdOrg\obj\Debug\EdOrg.g.resources
 C:\Users\WSR\Desktop\delitee\EdOrg\EdOrg\obj\Debug\EdOrg.Properties.Resources.resources
 C:\Users\WSR\Desktop\delitee\EdOrg\EdOrg\obj\Debug\EdOrg.csproj.GenerateResource.cache
 C:\Users\WSR\Desktop\delitee\EdOrg\EdOrg\obj\Debug\EdOrg.csproj.CoreCompileInputs.cache
-C:\Users\WSR\Desktop\delitee\EdOrg\EdOrg\obj\Debug\EdOrg.csproj.Up2Date
 C:\Users\WSR\Desktop\delitee\EdOrg\EdOrg\obj\Debug\EdOrg.exe
 C:\Users\WSR\Desktop\delitee\EdOrg\EdOrg\obj\Debug\EdOrg.pdb
+C:\Users\WSR\Desktop\delitee\EdOrg\EdOrg\obj\Debug\EdOrg.csproj.CopyComplete
