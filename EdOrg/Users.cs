@@ -31,7 +31,12 @@ namespace EdOrg
         public int Role { get; set; }
         public System.DateTime CreatedAt { get; set; }
         public Nullable<System.DateTime> UpdatedAt { get; set; }
-    
+        public string fullName {
+            get {
+                string fullName = Patronymic == null ? this.Surname + " " + this.Name : this.Surname + " " + this.Name + " " + this.Patronymic;
+                return fullName;         
+            } 
+        }
         public virtual Groups Groups { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Marks> Marks { get; set; }

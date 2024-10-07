@@ -5,10 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EdOrg.Views"
         mc:Ignorable="d"
-        Title="Stident" Height="450" Width="800">
-    <StackPanel VerticalAlignment="Center"> 
-        <ComboBox x:Name="cbxCurrentSubject" SelectionChanged="ChangeCurrentSubject" HorizontalAlignment="Center" VerticalAlignment="Center" IsEditable="True" IsReadOnly="True" Text="выберите дисциплину"></ComboBox>
-        <DataGrid VerticalAlignment="Bottom" Margin="10" x:Name="dgMarks" AutoGenerateColumns="False">
+        Title="Student" Height="450" Width="800">
+    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="350">
+        <Image Source="../Resources/sad-pepe.png" Height="100" HorizontalAlignment="Center"/>
+        <Label HorizontalAlignment="Left" Margin="10,0,0,0">Дисциплина</Label>
+        <ComboBox x:Name="cbxCurrentSubject" Margin="10,0,0,0" SelectionChanged="ChangeCurrentSubject" HorizontalAlignment="Left" VerticalAlignment="Center" Width="100"></ComboBox>
+        <DataGrid VerticalAlignment="Bottom" IsReadOnly="True" CanUserAddRows="False"  Margin="10" x:Name="dgMarks" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Дата"  Width="*" Binding="{Binding CreatedAt}" />
                 <DataGridTextColumn Header="Дисциплина"  Width="*" Binding="{Binding Subjects.Name}" />

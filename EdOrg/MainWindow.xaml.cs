@@ -58,13 +58,13 @@ namespace EdOrg
                     MessageBox.Show("Неправильный логин и пароль");
                     return;
                 }
-                switch ((UserType)(user.Role)) 
+                switch ((utils.UserType)(user.Role)) 
                 {
-                    case UserType.Student:
+                    case utils.UserType.Student:
                         new views.StudentView(user).Show();
                         this.Close();
                         break;
-                    case UserType.Teacher:
+                    case utils.UserType.Teacher:
                         new views.TeacherView(user).Show();
                         this.Close();
                         break;
@@ -73,9 +73,5 @@ namespace EdOrg
             }
         }
     }
-    public enum UserType
-    {
-        Student = 1,
-        Teacher = 2
-    }
+    
 }

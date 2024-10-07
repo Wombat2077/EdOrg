@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using utils = EdOrg.Utils; 
 
 namespace EdOrg.Views
 {
@@ -27,30 +28,30 @@ namespace EdOrg.Views
             InitializeComponent();
             this.user = user;
             dgMarks.ItemsSource = user.Marks;
+
+            // Добавление предметов в комбобокс предметов
             List<Subjects> subjects;
             using(var context = new EdOrgEntities())
             {
                 subjects = context.Subjects.ToList();
             }
-            foreach(var subject in subjects)
+            cbxCurrentSubject.Items.Add(new utils.comboBoxItem<Subjects> { Text = "Все", Value = null });
+            foreach (var subject in subjects)
             {
-                cbxCurrentSubject.Items.Add(new comboBoxItem<Subjects> { Text = subject.Name, Value = subject });
+                cbxCurrentSubject.Items.Add(new utils.comboBoxItem<Subjects> { Text = subject.Name, Value = subject });
             }
-        }
-
-        class comboBoxItem<T>
-        {
-            public string Text { get; set; }
-            public T Value { get; set; }
-            public override string ToString()
-            {
-                return Text;
-            }
+            cbxCurrentSubject.SelectedIndex = 0;
         }
 
         private void ChangeCurrentSubject(object sender, SelectionChangedEventArgs e)
         {
-            comboBoxItem<Subjects> currentItem = cbxCurrentSubject.SelectedItem as comboBoxItem<Subjects>;
+            utils.comboBoxItem<Subjects> currentItem = cbxCurrentSubject.SelectedItem as utils.comboBoxItem<Subjects>;
+            if (currentItem.Value == null) 
+            {
+                currentSubject = currentItem.Value;
+                dgMarks.ItemsSource = user.Marks.ToList();
+                return;
+            }
             currentSubject = currentItem.Value;
             dgMarks.ItemsSource = user.Marks.Where(m => m.Subjects.Id == currentSubject.Id).ToList();
         }
