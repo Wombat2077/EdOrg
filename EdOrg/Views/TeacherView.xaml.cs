@@ -21,8 +21,8 @@ namespace EdOrg.Views
     public partial class TeacherView : Window
     {
         Users user;
-        int? currentStudent;
-        int? currentGroup;
+        Users currentStudent;
+        Groups currentGroup;
         List<Marks> marks;
         public TeacherView(Users user)
         {
@@ -60,18 +60,30 @@ namespace EdOrg.Views
 
         private void StudentChanged(object sender, SelectionChangedEventArgs e)
         {
-            var currentItem = cbxGroup.SelectedItem as utils.comboBoxItem<Users>;
-            this.currentGroup = currentItem.Value?.Id;
-            dgMarks.ItemsSource = marks.Where(m => m.UserId == currentStudent | currentStudent == 0)
-                                       .Where(m => m.Users.GroupId == currentGroup | currentGroup == 0).ToList();
+            utils.comboBoxItem<Users> currentItem = cbxStudent.SelectedItem as utils.comboBoxItem<Users>;
+            this.currentStudent = currentItem.Value;
+            filterData();
         }
 
         private void GroupChanged(object sender, SelectionChangedEventArgs e)
         {
             var currentItem = cbxGroup.SelectedItem as utils.comboBoxItem<Groups>;
-            this.currentGroup = currentItem.Value?.Id;
-            dgMarks.ItemsSource = marks.Where(m => m.Users.GroupId == currentGroup | currentGroup == 0)
-                                       .Where(m => m.Users.GroupId == currentGroup | currentGroup == 0).ToList();
+            this.currentGroup = currentItem.Value;
+            filterData();
+        }
+        private void filterData()
+        {
+            if(currentStudent != null)
+            {
+                dgMarks.ItemsSource = marks.Where(m => m.UserId == currentStudent.Id);
+                return;
+            }
+            if(currentGroup != null)
+            {
+                dgMarks.ItemsSource = marks.Where(m => m.Users.GroupId == currentGroup.Id).ToList();
+                return;
+            }
+            dgMarks.ItemsSource = marks;
         }
     }
 

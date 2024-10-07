@@ -4,6 +4,7 @@
     <EntitySetMapping Name="Groups">
       <EntityTypeMapping TypeName="EdOrgModel.Groups">
         <MappingFragment StoreEntitySet="Groups">
+          <ScalarProperty Name="DeletedAT" ColumnName="DeletedAT" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
@@ -14,6 +15,7 @@
     <EntitySetMapping Name="Marks">
       <EntityTypeMapping TypeName="EdOrgModel.Marks">
         <MappingFragment StoreEntitySet="Marks">
+          <ScalarProperty Name="DeletedAT" ColumnName="DeletedAT" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Value" ColumnName="Value" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
@@ -26,6 +28,7 @@
     <EntitySetMapping Name="Subjects">
       <EntityTypeMapping TypeName="EdOrgModel.Subjects">
         <MappingFragment StoreEntitySet="Subjects">
+          <ScalarProperty Name="DeletedAT" ColumnName="DeletedAT" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="TeacherId" ColumnName="TeacherId" />
@@ -34,20 +37,10 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="sysdiagrams">
-      <EntityTypeMapping TypeName="EdOrgModel.sysdiagrams">
-        <MappingFragment StoreEntitySet="sysdiagrams">
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-          <ScalarProperty Name="version" ColumnName="version" />
-          <ScalarProperty Name="definition" ColumnName="definition" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="EdOrgModel.Users">
         <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="DeletedAT" ColumnName="DeletedAT" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Surname" ColumnName="Surname" />
           <ScalarProperty Name="Name" ColumnName="Name" />

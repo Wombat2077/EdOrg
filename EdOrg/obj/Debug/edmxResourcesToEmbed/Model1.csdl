@@ -9,6 +9,7 @@
     <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
     <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
     <NavigationProperty Name="Users" Relationship="Self.FK_Users_Groups" FromRole="Groups" ToRole="Users" />
+    <Property Name="DeletedAT" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="Marks">
     <Key>
@@ -22,6 +23,7 @@
     <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
     <NavigationProperty Name="Subjects" Relationship="Self.FK_Marks_Subjects" FromRole="Marks" ToRole="Subjects" />
     <NavigationProperty Name="Users" Relationship="Self.FK_Marks_Users" FromRole="Marks" ToRole="Users" />
+    <Property Name="DeletedAT" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="Subjects">
     <Key>
@@ -34,16 +36,7 @@
     <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
     <NavigationProperty Name="Marks" Relationship="Self.FK_Marks_Subjects" FromRole="Subjects" ToRole="Marks" />
     <NavigationProperty Name="Users" Relationship="Self.FK_Subjects_Users" FromRole="Subjects" ToRole="Users" />
-  </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="DeletedAT" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="Users">
     <Key>
@@ -62,6 +55,7 @@
     <NavigationProperty Name="Groups" Relationship="Self.FK_Users_Groups" FromRole="Users" ToRole="Groups" />
     <NavigationProperty Name="Marks" Relationship="Self.FK_Marks_Users" FromRole="Users" ToRole="Marks" />
     <NavigationProperty Name="Subjects" Relationship="Self.FK_Subjects_Users" FromRole="Users" ToRole="Subjects" />
+    <Property Name="DeletedAT" Type="DateTime" Precision="3" />
   </EntityType>
   <Association Name="FK_Users_Groups">
     <End Role="Groups" Type="Self.Groups" Multiplicity="0..1" />
@@ -117,7 +111,6 @@
     <EntitySet Name="Groups" EntityType="Self.Groups" />
     <EntitySet Name="Marks" EntityType="Self.Marks" />
     <EntitySet Name="Subjects" EntityType="Self.Subjects" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
     <EntitySet Name="Users" EntityType="Self.Users" />
     <AssociationSet Name="FK_Users_Groups" Association="Self.FK_Users_Groups">
       <End Role="Groups" EntitySet="Groups" />

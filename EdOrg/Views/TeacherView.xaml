@@ -5,19 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EdOrg.Views"
         mc:Ignorable="d"
-        Title="TeacherView" Height="450" Width="800">
+        Title="TeacherView" Height="650" Width="800">
     <Border Padding="5">
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="450">
         <Image Source="../Resources/sus-pepe.png" Width="200"/>
         <Label>
             Группа
         </Label>
-        <ComboBox SelectionChanged="cbxGroup_SelectionChanged" x:Name="cbxGroup" Width="150" HorizontalAlignment="Left"  IsEditable="True" IsTextSearchEnabled="True" Margin="0,0,0,10"></ComboBox>
+        <ComboBox SelectionChanged="GroupChanged" x:Name="cbxGroup" Width="150" HorizontalAlignment="Left"  IsEditable="True" IsTextSearchEnabled="True" Margin="0,0,0,10"></ComboBox>
         <Label>
             Студент
         </Label>
-        <ComboBox SelectionChanged="cbxStudent_SelectionChanged" x:Name="cbxStudent" Width="150" HorizontalAlignment="Left" IsEditable="True" IsTextSearchEnabled="True" Margin="0,0,0,10"></ComboBox>
-        <DataGrid x:Name="dgMarks" AutoGenerateColumns="False" VerticalScrollBarVisibility="Visible" Height="100">
+        <ComboBox SelectionChanged="StudentChanged" x:Name="cbxStudent" Width="150" HorizontalAlignment="Left" IsEditable="True" IsTextSearchEnabled="True" Margin="0,0,0,10"></ComboBox>
+        <DataGrid x:Name="dgMarks" AutoGenerateColumns="False" VerticalScrollBarVisibility="Visible" Height="200">
             <DataGrid.Columns>
                 <DataGridTextColumn Width="*" Header="Дата" Binding="{Binding CreatedAt}"/>
                 <DataGridTextColumn Width="*" Header="Группа" Binding="{Binding Users.Groups.Name}"/>

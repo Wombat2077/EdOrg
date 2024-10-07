@@ -8,6 +8,7 @@
     <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="UpdatedAt" Type="datetime" />
     <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="DeletedAT" Type="datetime" />
   </EntityType>
   <EntityType Name="Marks">
     <Key>
@@ -19,6 +20,7 @@
     <Property Name="SubjectId" Type="int" Nullable="false" />
     <Property Name="CreatedAt" Type="datetime" Nullable="false" />
     <Property Name="UpdatedAt" Type="datetime" />
+    <Property Name="DeletedAT" Type="datetime" />
   </EntityType>
   <EntityType Name="Subjects">
     <Key>
@@ -29,16 +31,7 @@
     <Property Name="TeacherId" Type="int" />
     <Property Name="UpdatedAt" Type="datetime" />
     <Property Name="CreatedAt" Type="datetime" Nullable="false" />
-  </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="version" Type="int" />
-    <Property Name="definition" Type="varbinary(max)" />
+    <Property Name="DeletedAT" Type="datetime" />
   </EntityType>
   <EntityType Name="Users">
     <Key>
@@ -54,6 +47,7 @@
     <Property Name="Role" Type="int" Nullable="false" />
     <Property Name="CreatedAt" Type="datetime" Nullable="false" />
     <Property Name="UpdatedAt" Type="datetime" />
+    <Property Name="DeletedAT" Type="datetime" />
   </EntityType>
   <Association Name="FK_Marks_Subjects">
     <End Role="Subjects" Type="Self.Subjects" Multiplicity="1" />
@@ -109,7 +103,6 @@
     <EntitySet Name="Groups" EntityType="Self.Groups" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Marks" EntityType="Self.Marks" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Subjects" EntityType="Self.Subjects" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_Marks_Subjects" Association="Self.FK_Marks_Subjects">
       <End Role="Subjects" EntitySet="Subjects" />
