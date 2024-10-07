@@ -21,13 +21,15 @@ namespace EdOrg.Views
     public partial class TeacherView : Window
     {
         Users user;
+        int? currentStudent;
+        int? currentGroup;
+        List<Marks> marks;
         public TeacherView(Users user)
         {
             InitializeComponent();
             this.user = user;
             List<Groups> groups;
             List<Users> students;
-            List<Marks> marks;
             List<Subjects> subjects;
             using (var context = new EdOrgEntities())
             {
@@ -42,16 +44,34 @@ namespace EdOrg.Views
 
                 var gItems = utils.comboBoxItem<Groups>
                                                     .ListFrom(groups.Select(g => (g.Name, g)).ToList());
-                gItems.Add(new utils.comboBoxItem<Groups> { Text = "Все группы", Value = null });
+                gItems.Insert(0, new utils.comboBoxItem<Groups> { Text = "Все группы", Value = null });
                 cbxGroup.ItemsSource = gItems;
 
                 cbxGroup.SelectedIndex = 0;
                 var sItems = utils.comboBoxItem<Users>
                                                     .ListFrom(students.Select(s => (s.fullName, s)).ToList());
-                sItems.Add(new utils.comboBoxItem<Users> { Text = "Все студенты", Value = null });
+                sItems.Insert(0, new utils.comboBoxItem<Users> { Text = "Все студенты", Value = null });
                 cbxStudent.ItemsSource = sItems;
+                cbxStudent.SelectedIndex = 0;
+
                 dgMarks.ItemsSource = marks;
             }
+        }
+
+        private void StudentChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var currentItem = cbxGroup.SelectedItem as utils.comboBoxItem<Users>;
+            this.currentGroup = currentItem.Value?.Id;
+            dgMarks.ItemsSource = marks.Where(m => m.UserId == currentStudent | currentStudent == 0)
+                                       .Where(m => m.Users.GroupId == currentGroup | currentGroup == 0).ToList();
+        }
+
+        private void GroupChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var currentItem = cbxGroup.SelectedItem as utils.comboBoxItem<Groups>;
+            this.currentGroup = currentItem.Value?.Id;
+            dgMarks.ItemsSource = marks.Where(m => m.Users.GroupId == currentGroup | currentGroup == 0)
+                                       .Where(m => m.Users.GroupId == currentGroup | currentGroup == 0).ToList();
         }
     }
 
