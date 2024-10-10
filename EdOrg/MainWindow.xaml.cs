@@ -49,9 +49,8 @@ namespace EdOrg
                 string hash = utils.Hasher.Hash(password);
                 var user = context
                             .Users
-                            .Where(u => u.Login == login)
-                            .Where(u => hash == u.Password)
-                            .AsNoTracking()
+                            .Where(User => User.Login == login)
+                            .Where(User => hash == User.Password)
                             .FirstOrDefault();
                 if (user == null)
                 {
@@ -60,7 +59,7 @@ namespace EdOrg
                 }
                 switch ((utils.UserType)(user.Role)) 
                 {
-                    case utils.UserType.Student:
+                    case utils.UserType.Student:    
                         new views.StudentView(user).Show();
                         this.Close();
                         break;
