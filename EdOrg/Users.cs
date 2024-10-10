@@ -11,7 +11,7 @@ namespace EdOrg
 {
     using System;
     using System.Collections.Generic;
-    
+
     public partial class Users
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,7 +20,7 @@ namespace EdOrg
             this.Marks = new HashSet<Marks>();
             this.Subjects = new HashSet<Subjects>();
         }
-    
+
         public int Id { get; set; }
         public string Surname { get; set; }
         public string Name { get; set; }
